@@ -6,7 +6,7 @@ class AboutExceptions < Neo::Koan
   end
 
   def test_exceptions_inherit_from_Exception
-    assert_equal __, MySpecialError.ancestors[1]
+    assert_equal RuntimeError, MySpecialError.ancestors[1]
     assert_equal __, MySpecialError.ancestors[2]
     assert_equal __, MySpecialError.ancestors[3]
     assert_equal __, MySpecialError.ancestors[4]
@@ -22,7 +22,7 @@ class AboutExceptions < Neo::Koan
 
     assert_equal __, result
 
-    assert_equal __, ex.is_a?(StandardError), "Should be a Standard Error"
+    assert_equal true, ex.is_a?(StandardError), "Should be a Standard Error"
     assert_equal __, ex.is_a?(RuntimeError),  "Should be a Runtime Error"
 
     assert RuntimeError.ancestors.include?(StandardError),
